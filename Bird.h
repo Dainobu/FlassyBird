@@ -6,8 +6,9 @@ public:
 	Bird();
 	~Bird();
 	void jump();
-	void updateBird();
-	sf::CircleShape getBird();
+	void update();
+	sf::CircleShape get();
+	void draw(sf::RenderWindow *window_p);
 private:
 	sf::CircleShape bird;
 	int yVel;

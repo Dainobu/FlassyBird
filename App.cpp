@@ -1,17 +1,20 @@
 #include "stdafx.h"
 #include "App.h"
-
+#include "Config.h"
 
 App::App()
 {
 	// create the window
-	window_p = new sf::RenderWindow(sf::VideoMode(1600, 1000), "My window");
+	window_p = new sf::RenderWindow(sf::VideoMode(config::SCREEN_WIDTH, config::SCREEN_HEIGHT), "My window");
 	window_p->setFramerateLimit(60);
 }
 
 
 App::~App()
 {
+	if (window_p != nullptr)
+		delete window_p;
+
 }
 
 
@@ -47,7 +50,8 @@ void App::handleInput()
 void App::updateGame()
 {
 	// update
-	bird.updateBird();
+	bird.update();
+	pipes.update();
 }
 
 
@@ -57,7 +61,8 @@ void App::renderGame()
 	window_p->clear(sf::Color::Black);
 
 	// draw everything here...
-	window_p->draw(bird.getBird()); // TODO (DVU): wtf?
+	bird.draw(window_p);
+	pipes.draw(window_p);
 
 	// end the current frame
 	window_p->display();

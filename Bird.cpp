@@ -4,7 +4,7 @@
 
 Bird::Bird()
 {
-	xBird = 750;
+	xBird = 500;
 	yBird = 450;
 
 	bird.setRadius(50);
@@ -28,7 +28,7 @@ void Bird::jump()
 }
 
 
-void Bird::updateBird()
+void Bird::update()
 {
 	if (yVel != 20 && jumped == false) {
 		yVel++;
@@ -45,7 +45,13 @@ void Bird::updateBird()
 }
 
 
-sf::CircleShape Bird::getBird()
+sf::CircleShape Bird::get()
 {
 	return bird;
+}
+
+
+void Bird::draw(sf::RenderWindow *window_p)
+{
+	window_p->draw(bird);
 }
