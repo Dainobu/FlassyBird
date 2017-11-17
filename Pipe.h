@@ -10,14 +10,16 @@ public:
 	sf::RectangleShape getB();
 	void setTHeight(int height);
 	void setBHeight(int height);
+	int getX();
 	void setX(int xPos);
 	void draw(sf::RenderWindow *window_p);
+	static const int PIPE_WIDTH = 100;
 private:
-	sf::RectangleShape pipeT;
-	sf::RectangleShape pipeB;
+	sf::RectangleShape pipeTop;
+	sf::RectangleShape pipeBottom;
 	int xVel;
 	int xPipe;
-	int yPipeT;
-	int yPipeB;
+	int yPipeTop;
+	int yPipeBottom;
 };
 

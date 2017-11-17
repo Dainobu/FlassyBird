@@ -12,9 +12,11 @@ public:
 	void jump();
 	void updateGame();
 	void renderGame();
+	//void checkCollision();
 	
 private:
 	sf::RenderWindow *window_p;
 	Bird bird;
 	Pipes pipes;
+	bool pause;
 };

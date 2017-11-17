@@ -4,17 +4,17 @@
 
 Pipe::Pipe()
 {
-	yPipeT = 0;
-	yPipeB = config::SCREEN_HEIGHT * 0.75;
+	yPipeTop = 0;
+	yPipeBottom = config::SCREEN_HEIGHT * 0.75;
 	xPipe = config::SCREEN_WIDTH;
 
-	pipeT.setSize(sf::Vector2f(100, config::SCREEN_HEIGHT * 0.25));
-	pipeT.setPosition(xPipe, yPipeT);
-	pipeT.setFillColor(sf::Color(255, 0, 0));
+	pipeTop.setSize(sf::Vector2f(PIPE_WIDTH, config::SCREEN_HEIGHT * 0.25));
+	pipeTop.setPosition(xPipe, yPipeTop);
+	pipeTop.setFillColor(sf::Color(255, 0, 0));
 
-	pipeB.setSize(sf::Vector2f(100, config::SCREEN_HEIGHT * 0.25));
-	pipeB.setPosition(xPipe, yPipeB);
-	pipeB.setFillColor(sf::Color(255, 0, 0));
+	pipeBottom.setSize(sf::Vector2f(PIPE_WIDTH, config::SCREEN_HEIGHT * 0.25));
+	pipeBottom.setPosition(xPipe, yPipeBottom);
+	pipeBottom.setFillColor(sf::Color(255, 0, 0));
 
 	xVel = -5;
 }
@@ -29,20 +29,20 @@ void Pipe::update()
 {
 	xPipe += xVel;
 
-	pipeT.setPosition(xPipe, yPipeT);
-	pipeB.setPosition(xPipe, yPipeB);
+	pipeTop.setPosition(xPipe, yPipeTop);
+	pipeBottom.setPosition(xPipe, yPipeBottom);
 }
 
 
 sf::RectangleShape Pipe::getT()
 {
-	return pipeT;
+	return pipeTop;
 }
 
 
 sf::RectangleShape Pipe::getB()
 {
-	return pipeB;
+	return pipeBottom;
 }
 
 
@@ -58,6 +58,12 @@ void Pipe::setBHeight(int height)
 }
 
 
+int Pipe::getX()
+{
+	return xPipe;
+}
+
+
 void Pipe::setX(int xPos)
 {
 	xPipe = xPos;
@@ -66,6 +72,6 @@ void Pipe::setX(int xPos)
 
 void Pipe::draw(sf::RenderWindow *window_p)
 {
-	window_p->draw(pipeT);
-	window_p->draw(pipeB);
+	window_p->draw(pipeTop);
+	window_p->draw(pipeBottom);
 }

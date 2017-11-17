@@ -7,6 +7,8 @@ App::App()
 	// create the window
 	window_p = new sf::RenderWindow(sf::VideoMode(config::SCREEN_WIDTH, config::SCREEN_HEIGHT), "My window");
 	window_p->setFramerateLimit(60);
+
+	pause = false;
 }
 
 
@@ -24,8 +26,11 @@ void App::run()
 	while (window_p->isOpen())
 	{
 		handleInput();
-		updateGame();
-		renderGame();
+
+		if (!pause) {
+			updateGame();
+			renderGame();
+		}
 	}
 }
 
@@ -41,7 +46,13 @@ void App::handleInput()
 
 		// "jump requested" event: the bird jumps
 		if (event.type == sf::Event::KeyPressed) {
-			bird.jump();
+			if (event.key.code == sf::Keyboard::P) {
+				pause = !pause;
+			}
+
+			if (!pause && event.key.code == sf::Keyboard::Space) {
+				bird.jump();
+			}
 		}
 	}
 }
@@ -52,6 +63,8 @@ void App::updateGame()
 	// update
 	bird.update();
 	pipes.update();
+
+	//checkCollision();
 }
 
 
