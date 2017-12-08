@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="Bird.h" />
+    <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Pipe.h" />
     <ClInclude Include="Pipes.h" />
@@ -161,6 +162,7 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Bird.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="FlassyBird.cpp" />
     <ClCompile Include="Pipe.cpp" />
     <ClCompile Include="Pipes.cpp" />

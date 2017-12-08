@@ -7,7 +7,7 @@ Bird::Bird()
 	xBird = 500;
 	yBird = 450;
 
-	bird.setRadius(50);
+	bird.setRadius(RADIUS);
 	bird.setPosition(xBird, yBird);
 	bird.setFillColor(sf::Color(0, 0, 255));
 
@@ -45,7 +45,7 @@ void Bird::update()
 }
 
 
-sf::CircleShape Bird::get()
+sf::CircleShape Bird::getBirdShape()
 {
 	return bird;
 }
@@ -54,4 +54,14 @@ sf::CircleShape Bird::get()
 void Bird::draw(sf::RenderWindow *window_p)
 {
 	window_p->draw(bird);
+}
+
+int Bird::getX()
+{
+	return xBird;
+}
+
+int Bird::getY()
+{
+	return yBird;
 }

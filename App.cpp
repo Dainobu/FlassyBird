@@ -8,6 +8,8 @@ App::App()
 	window_p = new sf::RenderWindow(sf::VideoMode(config::SCREEN_WIDTH, config::SCREEN_HEIGHT), "My window");
 	window_p->setFramerateLimit(60);
 
+	collisionManager.initialize(&bird, &pipes);
+
 	pause = false;
 }
 
@@ -64,7 +66,9 @@ void App::updateGame()
 	bird.update();
 	pipes.update();
 
-	//checkCollision();
+	if (collisionManager.checkCollision()) {
+		pause = true;
+	}
 }
 
 

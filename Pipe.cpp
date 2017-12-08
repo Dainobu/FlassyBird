@@ -45,23 +45,11 @@ sf::RectangleShape Pipe::getB()
 	return pipeBottom;
 }
 
-
-void Pipe::setTHeight(int height)
-{
-
-}
-
-
-void Pipe::setBHeight(int height)
-{
-
-}
-
-
 int Pipe::getX()
 {
 	return xPipe;
 }
+
 
 
 void Pipe::setX(int xPos)

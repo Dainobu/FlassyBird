@@ -8,8 +8,8 @@ public:
 	void update();
 	sf::RectangleShape getT();
 	sf::RectangleShape getB();
-	void setTHeight(int height);
-	void setBHeight(int height);
+	int getYPipeTop();
+	int getYPipeBottom();
 	int getX();
 	void setX(int xPos);
 	void draw(sf::RenderWindow *window_p);

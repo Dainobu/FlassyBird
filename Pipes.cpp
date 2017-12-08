@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Pipes.h"
+#include "Config.h"
 
 Pipes::Pipes()
 {
@@ -35,4 +36,22 @@ void Pipes::draw(sf::RenderWindow *window_p)
 	{
 		pipes[i].draw(window_p);
 	}
+}
+
+Pipe* Pipes::getNearestPipe(Bird *bird)
+{
+	int distance = config::SCREEN_WIDTH;
+	int diff;
+	Pipe *nearest = nullptr;
+
+	for (int i = 0; i < NUM_PIPES; i++)	{
+		diff = pipes[i].getX() - bird->getX();
+		if (diff >= 0 && diff < distance)
+		{
+			distance = diff;
+			nearest = &pipes[i];
+		}
+	}
+
+	return nearest;
 }
